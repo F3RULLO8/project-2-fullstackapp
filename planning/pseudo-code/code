@@ -1,0 +1,35 @@
+C - making user and making gifs and adding gifs to mygifs and adding gifs
+R - looking at users stored gifs and at indiviual gifs w/ comments
+U - changing a url to a gif
+D - removing gifs from my gifs
+
+Models
+
+const user {
+    info {
+        username
+        password
+        email
+    }
+    mygifs {
+        [gifs]
+    }
+}
+const gif {
+    url
+    added at
+}
+const comment {
+    author
+    date-time stamp
+    content
+}
+
+Routes 
+
+server.js
+application.js
+gif.js
+user.js
+
+Controllers

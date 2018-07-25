@@ -1,0 +1,36 @@
+{
+  "name": "spiphy",
+  "version": "1.0.0",
+  "description": "project-2-fullstackapp",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-ejs-layouts": "^2.4.0",
+    "express-session": "^1.15.6",
+    "hbs": "^4.0.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.2.4",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F3RULLO8/project-2-fullstackapp.git"
+  },
+  "author": "thomas ferullo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/F3RULLO8/project-2-fullstackapp/issues"
+  },
+  "homepage": "https://github.com/F3RULLO8/project-2-fullstackapp#readme"
+}

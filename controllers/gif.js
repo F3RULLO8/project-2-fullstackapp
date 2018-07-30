@@ -1,5 +1,4 @@
-const { Gif, Comment } = require("../models/Gif");
-const User = require("../models/User");
+const { Gif, Comment } = require("../models/Gif")
 
 module.exports = {
   show: (req, res) => {
@@ -10,39 +9,43 @@ module.exports = {
           err,
           comments
         ) {
-          gif.comments = comments;
-          res.render("gif/show", gif);
-        });
-      });
+          gif.comments = comments
+          console.log(gif)
+          res.render("gif/show", gif)
+        })
+      })
   },
   new: (req, res) => {
-    User.find({}).then(users => {
-      res.render("gif/new", { users });
-    });
+    res.render("gif/new")
   },
   create: (req, res) => {
     Gif.create({
       content: req.body.gif.content,
-      author: req.body.author
+      author: req.user._id
     }).then(gif => {
-      User.findOne({ _id: req.body.author }).then(user => {
-        user.gifs.push(gif);
-        user.save(err => {
-          res.redirect(`/gif/${gif._id}`);
-        });
-      });
-    });
+      req.user.gifs.push(gif)
+      req.user.save(err => {
+        res.redirect(`/gif/${gif._id}`)
+      })
+    })
   },
   update: (req, res) => {
-    let { content, author } = req.body;
+    let { content } = req.body
     Gif.findOne({ _id: req.params.id }).then(gif => {
       gif.comments.push({
         content,
-        author
-      });
+        author: req.user._id
+      })
       gif.save(err => {
-        res.redirect(`/gif/${gif._id}`);
-      });
-    });
+        res.redirect(`/gif/${gif._id}`)
+      })
+    })
+  },
+  requireAuth: function(req, res, next) {
+    if (req.isAuthenticated()) {
+      next()
+    } else {
+      res.redirect("/")
+    }
   }
-};
+}

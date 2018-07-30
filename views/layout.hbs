@@ -13,8 +13,14 @@
         <div class="nav-wrapper">
           <a href="/" class="brand-logo left">Spiphy</a>
           <ul class="right">
+          {{#if currentUser}}
             <li><a href="/gif/new">Add Gif</a></li>
-            <li><a href="/user/new">New User</a></li>
+            <li><a href="/user/{{currentUser.id}}">Profile</a></li>
+            <li><a href="/user/logout">Log Out</a></li>
+          {{else}}
+            <li><a href="/user/login">Log In</a></li>
+            <li><a href="/user/sign-up">Sign Up</a></li>
+          {{/if}}
           </ul>
         </div>
       </nav>

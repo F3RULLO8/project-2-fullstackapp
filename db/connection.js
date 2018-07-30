@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/tweeter");
-mongoose.Promise = Promise;
-module.exports = mongoose;
+const mongoose = require("mongoose")
+mongoose.connect("mongodb://localhost/spiphy")
+mongoose.Promise = Promise
+module.exports = mongoose

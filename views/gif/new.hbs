@@ -1,0 +1,19 @@
+<section class="form-container">
+  <h4>New Gif</h4>
+  <form action="/gif" method="post" class="gif-form">
+    <div class="input-field">
+      <textarea name="gif[content]" cols="30" rows="10" placeholder="Message"></textarea>
+    </div>
+    <div class="">
+      <select name="author" id="author">
+        <option value="" disabled selected>Choose the User</option>
+        {{#each users}}
+          <option value="{{id}}">{{local.email}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="input-field">
+      <input type="submit" value="Add Gif" class="btn">
+    </div>
+  </form>
+</section>

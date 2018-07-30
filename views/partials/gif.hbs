@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-content">
+    <a class="card-title" href="/gif/{{id}}">
+      {{ content }}
+    </a>
+  </div>
+  <div class="card-action">
+    <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
+    <span class="gif__date">{{ createdAt }}</span>
+    <span class="gif_comments">{{ comments.length }} Comments</span>
+  </div>
+</div>

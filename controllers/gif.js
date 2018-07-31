@@ -41,6 +41,11 @@ module.exports = {
       })
     })
   },
+  delete: (req, res) => {
+    Gif.findOneAndRemove({ _id: req.params.id }).then(() => {
+      res.redirect("/")
+    })
+  },
   requireAuth: function(req, res, next) {
     if (req.isAuthenticated()) {
       next()

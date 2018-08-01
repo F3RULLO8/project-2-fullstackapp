@@ -15,63 +15,7 @@ User.find({}).remove(() => {
     }).then(user => {
       Promise.all([
         Gif.create({
-          content: "eh, what's up doc?",
-          author: user._id
-        }).then(gif => {
-          user.gifs.push(gif)
-        }),
-        Gif.create({
-          content: "That's all, folks!",
-          author: user._id
-        }).then(gif => {
-          user.gifs.push(gif)
-        })
-      ]).then(() => {
-        user.save(err => console.log(err))
-      })
-    })
-
-    let daffy = User.create({
-      local: {
-        email: "daffyduck@gmail.com",
-        password: createPassword("daffyduck")
-      }
-    }).then(user => {
-      Promise.all([
-        Gif.create({
-          content: "Who's this Duck Dodgers any how?",
-          author: user._id
-        }).then(gif => {
-          user.gifs.push(gif)
-        }),
-        Gif.create({
-          content: "You're dethpicable.",
-          author: user._id
-        }).then(gif => {
-          user.gifs.push(gif)
-        })
-      ]).then(() => {
-        user.save(err => console.log(err))
-      })
-    })
-
-    let elmer = User.create({
-      local: {
-        email: "elmerfudd@gmail.com",
-        password: createPassword("elmerfudd")
-      }
-    }).then(user => {
-      Promise.all([
-        Gif.create({
-          content:
-            "Shh. Be vewy vewy quiet. I'm hunting wabbits! Huh-huh-huh-huh!",
-          author: user._id
-        }).then(gif => {
-          user.gifs.push(gif)
-        }),
-
-        Gif.create({
-          content: "Kiww da wabbit!",
+          content: "https://media2.giphy.com/media/QJvwBSGaoc4eI/200.webp",
           author: user._id
         }).then(gif => {
           user.gifs.push(gif)

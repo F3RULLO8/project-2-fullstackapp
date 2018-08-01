@@ -1,13 +1,15 @@
 <p>
   {{> 'gif'}}
-  <form action="{{this.id}}?_method=DELETE" method="POST">
-      <input type="submit" value="Remove">
-    </form>
-    <form action="{{this.id}}?_method=PUT" method="POST">
-      <input type="text" value="{{ content }}">
-      <input type="submit" value="Update">
-    </form>
 </p>
+{{#if currentUser}}
+<form action="{{this.id}}?_method=DELETE" method="POST">
+  <input type="submit" value="Remove">
+</form>
+<form action="/gif/{{id}}?_method=PUT" method="POST">
+  <input type="text" name="content" id="" value="{{ content }}">
+  <input type="submit" value="Update" id="updateBut">
+</form>
+{{/if }}
 
 {{#if comments.length}}
   {{#each comments}}
@@ -35,7 +37,7 @@
         <input type="text" name="content" id="">
       </p>
       <p>
-        <input class="btn" type="submit" value="Submit">
+        <input type="submit" value="Submit">
       </p>
     </form>
   </div>

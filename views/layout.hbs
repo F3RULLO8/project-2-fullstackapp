@@ -4,15 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Spiphy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-    <header class="site-header">
+    <header>
       <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo left">Spiphy</a>
-          <ul class="right">
+        <div>
+          <a href="/">Spiphy</a>
+          <ul>
           {{#if currentUser}}
             <li><a href="/gif/new">Add Gif</a></li>
             <li><a href="/user/{{currentUser.id}}">Profile</a></li>
@@ -25,7 +24,7 @@
         </div>
       </nav>
     </header>
-    <main class="container">
+    <main>
       {{{ body }}}
     </main>
   </body>

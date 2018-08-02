@@ -1,7 +1,7 @@
 <section>
   <h2>{{user.local.email}}</h2>
   {{#if user.gifs}}
-    <div class="gifs">
+    <div>
       {{#each user.gifs}}
          {{> 'gif'}}
       {{/each}}

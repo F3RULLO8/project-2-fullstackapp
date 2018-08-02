@@ -1,33 +1,32 @@
 const { Gif, Comment } = require("../models/Gif")
-
+const User = require("../models/User")
 module.exports = {
   show: (req, res) => {
+    console.log('get gif: ', req.params.id)
     Gif.findOne({ _id: req.params.id })
       .populate("author")
-      .exec(function(err, gif) {
-        Comment.populate(gif.comments, { path: "author" }, function(
-          err,
-          comments
-        ) {
-          gif.comments = comments
-          console.log(gif)
-          res.render("gif/show", gif)
-        })
+      .populate("comments.author")
+      .then(gif => {
+        res.render('gif/show', gif)
       })
   },
   new: (req, res) => {
-    res.render("gif/new")
+    User.find({}).then(users => {
+    res.render("gif/new", { users})
+    })
   },
   create: (req, res) => {
     Gif.create({
       content: req.body.gif.content,
       author: req.user._id
     }).then(gif => {
+      User.findOne({ _id: req.body.author }).then(user =>{
       req.user.gifs.push(gif)
       req.user.save(err => {
         res.redirect(`/gif/${gif._id}`)
       })
     })
+  })
   },
   update: (req, res) => {
     let { content } = req.body

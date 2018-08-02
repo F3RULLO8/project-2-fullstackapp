@@ -7,3 +7,21 @@
 select {
   display: block;
 }
+.layout {
+  text-align: center;
+}
+.title {
+  font-size: 30px;
+  font-family: cursive;
+}
+a {
+  color: orange;
+  text-decoration: none;
+}
+body {
+  background-color: rgb(184, 245, 245)
+}
+li {
+  display: inline;
+  margin-right: 24px;
+}
